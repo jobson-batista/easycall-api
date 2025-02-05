@@ -45,7 +45,7 @@ public class ContactService {
     }
 
     public List<Contact> findContactsByCellPhone(String cellPhone) {
-        return contactRepository.findByCellPhoneContaining(cellPhone);
+        return contactRepository.findByCellPhoneContainingAndIsDeletedFalse(cellPhone);
     }
 
     public Contact updateContact(Long id, Contact updatedContact) {
@@ -86,6 +86,16 @@ public class ContactService {
         if(contact.isPresent()) {
             contact.get().setIsFavorite(Boolean.TRUE);
             return contactRepository.save(contact.get());
+        } else {
+            throw new BadRequestException("Contact Not Found","Contact not found with ID: " + id);
+        }
+    }
+
+    public void deleteContact(Long id) {
+        Optional<Contact> contact = contactRepository.findById(id);
+        if(contact.isPresent()) {
+            contact.get().setIsDeleted(Boolean.TRUE);
+            contactRepository.save(contact.get());
         } else {
             throw new BadRequestException("Contact Not Found","Contact not found with ID: " + id);
         }
