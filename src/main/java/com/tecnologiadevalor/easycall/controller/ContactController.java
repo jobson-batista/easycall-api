@@ -5,10 +5,9 @@ import com.tecnologiadevalor.easycall.service.ContactService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/contact")
@@ -20,5 +19,10 @@ public class ContactController {
     @PostMapping
     public ResponseEntity<Contact> saveContact(@RequestBody Contact contact) {
         return new ResponseEntity<>(contactService.saveContact(contact), HttpStatus.OK);
+    }
+
+    @GetMapping("/{cellPhone}")
+    public ResponseEntity<List<Contact>> findContactsByCellPhone(@PathVariable String cellPhone) {
+        return new ResponseEntity<>(contactService.findContactsByCellPhone(cellPhone), HttpStatus.OK);
     }
 }

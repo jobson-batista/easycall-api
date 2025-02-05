@@ -53,4 +53,18 @@ public class ContactExceptionHandler {
         );
         return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(BadRequestException.class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public ResponseEntity<MessageError> badRequestException(BadRequestException badRequestException, WebRequest request) {
+        badRequestException.printStackTrace();
+        MessageError message = new MessageError(
+                HttpStatus.BAD_REQUEST.value(),
+                request.getDescription(false),
+                badRequestException.getTitle(),
+                badRequestException.getDescription(),
+                LocalDateTime.now()
+        );
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+    }
 }
