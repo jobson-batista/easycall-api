@@ -32,7 +32,7 @@ Para rodar o projeto você precisa ter:
 
 1. Clone o repositório em sua máquina local.
 ```bash
-git clone git@github.com:jobson-batista/easycall-api.git
+git clone https://github.com/jobson-batista/easycall-api.git
 ```
 2. Entre no diretório raiz.
 ```bash
@@ -116,7 +116,7 @@ To run the project, you need to have:
 
 1. Clone the repository to your local machine:
 ```bash
-git clone git@github.com:jobson-batista/easycall-api.git
+git clone https://github.com/jobson-batista/easycall-api.git
 
 ```
 
