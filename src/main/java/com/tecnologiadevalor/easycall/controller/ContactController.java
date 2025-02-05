@@ -30,4 +30,9 @@ public class ContactController {
     public ResponseEntity<Contact> updateContactById(@PathVariable Long id, @RequestBody Contact contact) {
         return new ResponseEntity<>(contactService.updateContact(id, contact), HttpStatus.OK);
     }
+
+    @PutMapping("/favorite/{id}")
+    public ResponseEntity<Contact> markLikeFavorite(@PathVariable Long id) {
+        return new ResponseEntity<>(contactService.markLikeFavorite(id), HttpStatus.OK);
+    }
 }

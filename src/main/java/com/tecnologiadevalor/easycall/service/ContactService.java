@@ -81,5 +81,14 @@ public class ContactService {
         }
     }
 
+    public Contact markLikeFavorite(Long id) {
+        Optional<Contact> contact = contactRepository.findById(id);
+        if(contact.isPresent()) {
+            contact.get().setIsFavorite(Boolean.TRUE);
+            return contactRepository.save(contact.get());
+        } else {
+            throw new BadRequestException("Contact Not Found","Contact not found with ID: " + id);
+        }
+    }
 
 }
