@@ -1,8 +1,8 @@
 # Easy Call Rest API 🌍
 
-_[🇺🇸 English Version](#easy-callrest-api-en-)_
+_[🇺🇸 English Version](#easy-call-rest-api-en-)_
 
-_[🇧🇷 Versão em Português](#easy-callrest-api-pt-br-)_
+_[🇧🇷 Versão em Português](#easy-call-rest-api-pt-br-)_
 # Easy Call Rest API (PT-BR) 🇧🇷
 
 A EasyCall Rest API permite o gerenciamento de contatos, incluindo cadastro, busca por número de celular, atualização, marcação como favorito e exclusão. Esta API Rest possui as seguintes funcionalidades.
