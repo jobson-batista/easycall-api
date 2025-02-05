@@ -26,13 +26,28 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.postgresql:postgresql'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation group: 'org.mockito', name: 'mockito-core', version: '5.15.2'
+	testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '5.15.2'
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.11.4'
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.11.4'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+test {
+	jvmArgs = jvmArgs + ["-XX:+EnableDynamicAgentLoading", "-Xshare:off"]
+
+	testLogging {
+		events "PASSED", "FAILED", "SKIPPED"
+		exceptionFormat "full"
+		showStandardStreams = true
+	}
 }
