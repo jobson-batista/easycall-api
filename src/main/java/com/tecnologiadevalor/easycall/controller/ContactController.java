@@ -35,4 +35,10 @@ public class ContactController {
     public ResponseEntity<Contact> markLikeFavorite(@PathVariable Long id) {
         return new ResponseEntity<>(contactService.markLikeFavorite(id), HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteContact(@PathVariable Long id) {
+        contactService.deleteContact(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
