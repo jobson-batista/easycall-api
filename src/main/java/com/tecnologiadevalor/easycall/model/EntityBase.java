@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class EntityBase {
 
-    private boolean isDeleted;
+    private Boolean isDeleted;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;

@@ -25,4 +25,9 @@ public class ContactController {
     public ResponseEntity<List<Contact>> findContactsByCellPhone(@PathVariable String cellPhone) {
         return new ResponseEntity<>(contactService.findContactsByCellPhone(cellPhone), HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Contact> updateContactById(@PathVariable Long id, @RequestBody Contact contact) {
+        return new ResponseEntity<>(contactService.updateContact(id, contact), HttpStatus.OK);
+    }
 }

@@ -25,7 +25,7 @@ public class Contact extends EntityBase {
     @Column(length = 11)
     private String cellPhone;
 
-    private boolean isFavorite;
+    private Boolean isFavorite;
 
-    private boolean isActive;
+    private Boolean isActive;
 }
